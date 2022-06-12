@@ -1,0 +1,70 @@
+Michael Thorman
+CSCI 24000
+9/25/2017
+
+
+Goal: Create a simulation of the popular children's game Candy Land in order to explore the use of pointers, functions, and conditionals in C++.
+
+Input: No input
+ 
+Output: The output must be formatted in the same fashion as shown below:
+Welcome to CSCI 240's Candy Land Game!
+
+B A                                              |
+  A   B 					 |
+B   A                                            |
+       B           A                             |
+           B A                                   |
+    A                B                           |
+                 B  A                            |
+                       B  A                      |
+			   A  B			 |
+                                    A      B     |
+					A       B|
+Your friend reached Candy Castle 1st! Better luck next time. 
+
+
+
+Requirements:
+-The game is made up of 50 spaces – space #50 is the Candy Castle and thus the winning space.
+-Each turn you will “draw” a card that will instruct you to either move forward one (1) space, two
+(2) spaces, or encounter a Special Spot (these spots can be both good and bad).
+- Special Spot Movements:
+  Mountain Pass: Move forward three (3) spaces.
+  Rainbow Trail: Move forward five (5) spaces.
+  Cherry Pitfalls: Move backward three (3) spaces.
+  Molasses Swamp: Move backward five (5) spaces.
+-You and your friend cannot occupy the same space – if this occurs you must move backward one
+(1) space.
+-The player that reaches the 50th space first is declared the winner
+- We will assume that you will both start at Space #0.
+- You or your friend cannot move past the finish line (e.g., if you are on space 49 and draw a card
+that moves you forward 3 spaces you should not move to space 52 – instead you should just move
+to space 50).
+- Likewise, you may not move behind the start line (e.g., if you are on space 1 and draw a
+card that moves you backward 3 spaces you should not move to space -2 – instead you
+should just move back to the start space of 0).
+- The first player that reaches Space #50 should trigger a message that notifies the players on who
+the winner is.
+- You will always begin the game first.
+- You will need to find some way of generating random numbers to determine the probability
+
+Step-by-step details: 
+1. Include the following libraries: cstdlib, ctime, iostream, and iomanip. 
+2. Define the GAME_LENGTH as 50
+3. Create 4 functions: main, advancePlayerA, advancePlayerB, and printPosition.
+4. Start with main function: create integers for the starting space for each player and set them to 0
+5. Print on the screen: "Welcome to CSCI 240'S Candy Land Game!"
+6. initalize the advancePlayerA function. Pass the value for int player A by reference.
+7. The purpose of advancePlayerA() is to create a random draw which will be added to the pointer and passed back to main. 
+8. In order to create a random draw, an array of possible draws is created, and the value is stored in a new integer.
+9. A condition is put in place for playerA's draw: if the draw is less than 0, then the draw = 0. 
+10. Repeat for playerB, but pass by reference playerB's value to advancePlayerB(). A condition is also put in place if playerB <0.
+11. Since playerA and playerB cannot occupy the same space, a condition is put in place so that playerA moves back 1. 
+12. The values for playerA and playerB are passed by reference to printPosition(). 
+12. Some conditions need to be added so that the printed gameboard is formatted correctly: ptrA < ptrB, ptrA >ptrB, ptrA =0 && ptr=0.
+13. Setw is used to format the gameboard. "|" represents space#50. 
+14. In the main function, if playerA and playerB are less than 50, then the program will loop until they reach 50.
+15. If playerA or playerB are higher than 50, then their values will be set to 50.
+16. If player A reaches 50 first, then "You have reached Candy Castle 1st!" will print to the screen.
+17. If player B reaches 50 first, then "Your friend reached Candy Castle 1st! Better luck next time."
