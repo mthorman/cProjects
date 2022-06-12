@@ -1,0 +1,67 @@
+Michael Thorman
+12/3/2017
+Assignment#6 Algorithm Anaylsis 
+
+Big O Analysis: Insertion Sort vs. Bubble Sort 
+
+Big O notation can be used to analyze algorithms to determine their runtime or space requirements as the input
+size increases. Insertion sort and bubble sort algorithms have the same asymptotic complexity, big O - O(n^2),
+because their execution time growth rate is essentially the same. Bubble sort swaps through all remaining 
+unsorted values, moving one to the bottom, while insertion sort swaps a value up into already-sorted values, 
+stopping at the right place. However, unlike insertion sort which can break out of the loop early, bubble sort
+must see it through to the end. Furthermore, bubble sort interacts poorly with modern CPU hardware because it 
+requires at least twice as many writes as insertion sort, twice as many cache misses, and asymptotically more
+branch mispredictions. Owen Astrachan performed experiments to discourage the use of the bubble sort algorithm.
+In his experiments, he found that bubble sort was roughly five times slower than insertion sort. 
+
+Therefore, the larger the number of items or the more unsorted a list of items, the less practical bubble sort
+becomes; with similar input, the bubble sort algorithm is slower at sorting than the insertion sort algorithm. 
+In the best-case scenario, when the complexity of bubble sort is only O(n), or the list of items is already
+sorted, bubble sort is superior to other sorting algorithms, such as quicksort, because built in to the 
+algorithm is the ability to detect whether or not the list is sorted efficiently. However, since the insertion
+sort algorithm has the same ability, insertion sort is still more efficient at sorting already sorted data than
+bubble sort. 
+
+
+Works Cited
+
+Wikipedia Contributors."Sorting Algorithm." Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia,
+12 Dec. 2017. Web. 12 Dec.2017.<https://en.wikipedia.org/wiki/Sorting_algorithm>
+
+Assignment #6 Blackbelt: Java vs. C++
+
+One of the biggest differences between Java and C++ is how memory is managed on the heap. In C++ it was 
+important to delete all of the objects put on the heap in order to avoid memory leaks. In Java it was not
+necessary to delete the objects because the Java Garbage Collection(JGC) automatically reclaims memory for
+reuse. Going along with this, in C++, virtual destructors had to be created in each of the classes to 
+represent inheritance and polymorphism. There was no need to create destructors in the Java version. 
+The keyword virtual was also added to functions in C++ to show inheritance and polymorphism, and it was set
+"=0" to make it "pure" and force the derived class to override the method. This allowed me to use the methods 
+in the derived classes over the methods in base class. Similarly, inheritance is represented by the keyword 
+"extends" in Java, and "super" can be added to the constructor in the derived class to call the constructor 
+in the base class. Super can also be added to methods in the derived class to force it to use the method in 
+the base class. In C++, the base class's constructor is called by default in derived classes. Also, in C++
+in order to facilitate inheritance the derived class must be put in the scope of the base class as such:
+class derived: public base (public if inheritance is at the public level). The single colon deonotes th there
+is a direct relationship between two or more entities. Rules are the same in respect
+to visibilities of the respective methods and attributes of base class in derived class. 
+
+Moreover, C++ uses ofstream/ifstream/fstream for handling file I/O, whereas Java uses FileInputStream and 
+FileOutputStream, or File. As far as parsing input, C++ uses stringstream, and Java uses split or string
+tokenizer. Additionally, in C++ the -> operator must be used to access methods/attributes of objects that
+reside on the Heap. Information in Java is passed by value, whereas in C++ information is passed by 
+reference. In the C++ version, the array was passed to the getSortedData method along with the size of the
+array. It was not necessariy to pass the array size in Java because every array implicitly knows its own
+dimensions. Furthermore, in Java everything is an Object and everything besides the Object class inherits from
+the superclass of Object. Java supports only single inheritance, while C++ supports multiple inheritance. 
+Also, inheritance was used in C++ to create a hierarchical relationship uses the following syntax: 
+Sort *objectName = new InsertionSort() and Sort *objectName = new BubbleSort(). C++ classes are split up into
+two files: cpp file and header file. In Java, definitions, functions, and implementation are in one file. 
+Header files needed to be imported to driver file in C++, whereas in Java everything is an object and no need
+to import headers or anything else other than packages. Streams are required close in both languages. Data
+was read in as a string in both languages and had to be converted to an integer, since the array was of the 
+type int. Stringstream and >> was used to convert string to int in C++, while Integer.parseInt was used to
+convert string to int in Java. I also added try catch to Java while reading in text file, parsing, and 
+converting. The objects are created dynamically on the heap as pointers in C++. C++ has scope resolution 
+operator (::) which is used to to define a method outside a class and to access a global variable within 
+from the scope where a local variable also exists with the same name.
