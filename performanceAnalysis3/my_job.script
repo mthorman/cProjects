@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#SBATCH -J send-recv
+#SBATCH -p general
+#SBATCH -o send_recv_%j.txt
+#SBATCH -e send_recv_%j.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=mthorman@iupui.edu
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=22
+#SBATCH --time=00:60:00
+
+srun -n 2 main
