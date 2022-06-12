@@ -1,0 +1,81 @@
+Michael Thorman
+CSCI 24000 
+9/29/2017
+Assignment#3 Algorithm 
+
+Goal: Explore two different object-oriented programming languages by creating two separate programs - one written in C++ and one 
+written in Java. In honor of football season, you will create Players for the IUPUI football team, store them in memory, and allow
+the user to view an entire "roster" of Players.
+
+
+Input: When you start the program, you should provide the user with a menu choice to do one of the following:
+	1. Add New Player
+	2. View Players
+	3. Exit Program 
+
+
+Output: Example output of what your program should display when executed: 
+
+	Welcome to our CSCI 240 Roster Editor!
+	1) Add New Player
+	2) View Player(s)
+	3) Exit Program
+	Please enter your selection: 1
+	Please enter a first name: Ryan
+	Please enter a last name: Rybarczyk
+	Please enter a number (1-99): 15
+	**Player Created**
+	1) Add New Player
+	2) View Player(s)
+	3) Exit Program
+	Please enter your selection: 2
+	**IUPUI Football Roster**
+	15) Ryan Rybarczyk
+	*************************
+	1) Add New Player
+	2) View Player(s)
+	3) Exit Program
+	Please enter your selection: 5
+	Invalid Choice! Please select Option #1, #2, or #3.
+	1) Add New Player
+	2) View Player(s)
+	3) Exit Program
+	Please enter your selection: 3
+	Thank you for using our program - Goodbye!
+
+Requirements:
+- No two players will have the same name.
+- No two players can have the same number.
+- Each player must have at least at first name, last name, and a jersey number.
+- In the basic submission, there will only be, at maximum, eleven(11) players on team.
+- driver class must store any and all created players in an array on the heap. 
+- array must make use of dynamic memory allocation.
+- no memory leaks in C++ version. 
+- When you start the program, you should provide the user with a menu choice to do one of the following: 1. Add New Player 2. View Players 3. Exit Program
+- Upon completion of options #1 and #2 the menu should once again be displayed to the user - thus allowing them to make another selection. This process should continue to 
+loop until the user selects option #3. Once/if eleven players have been entered the program should print the roster and terminate. 
+
+
+Step-by-step details: 
+1. Create 3 files, Driver.cpp, Player.cpp, and Player.h, for C++ version of assignment and 2 files, Driver.java and Player.java, for Java version of assignment. 
+2. In the header file, Player.h, the class Player is surrounded by a header guard (#ifndef Player.H, #define Player.H, #endif)
+3. The class Player includes: private member variables string lastName, string firstName, and int playerNumber; public constructors Player() and Player(string f, string l, 
+int n); destructor ~Player(); and getter/setter methods. 
+4. Player.h is referenced in Driver.cpp and Player.cpp as #include "Player.h"
+5. Player.cpp, includes the class Player, but explains how the class will go about it by setting the member variables to default values (int playerNumber = 0, string firstName, lastName),
+assigning letters to each variable in constructor (playerNumber =n, firstName = f, lastName = l), printing roster information once user has selected 2 from main menu. 
+6. Driver.cpp, includes the main function which runs the program (int main()). 
+7. Add associated libraries or packages. 
+8. An array of eleven elements is created on the heap. The number 11 represents the number of players in the roster. 
+9. Int variable is created for user's response to the main menu: int userResponse. The user will type in 1,2 or 3 to select either "Add New Player", "View Player(s)", or "Exit Program."
+10. "Welcome to our CSCI 240 Roster Editor!" will print to the screen using cout. Player class object is created. 
+11. The user should be given a menu of 3 options unless they 1). select 3 and choose to exit program or 2). Roster is full or array has 11 names. Therefore, a while loop is created. If roster is full or i==11, then Player.PrintRoster() will be called, and class Player will be deleted (if C++). 
+12. Inside the while loop, the 3 options are printed to the screen: 1) Add New Player 2) View Player(s) 3) Exit Program and the user is asked to enter a selection. The user's response is 
+kept in the variable userResponse. 
+13. If/else statements are added for each option. If the user does not select 1,2 or 3, then "Invalid Choice! Please select Option #1, #2, or #3" printed to the screen and the menu
+shows back up for the user. 
+14. If the userResponse ==1, then the user is asked to Enter a first name, last name, and number between 1 and 99.  The first name is stored in the variable string firstName, the last name 
+is stored in string lastName, and the number is stored in int playerNumber. All 3 pieces of information are stored in an element of playerArray (p should go up by 1). 
+15. "***Player Created***" is printed to screen once all information has successfully been entered. Main menu will also print to screen again if i<11. 
+16. If the userResponse ==2, then roster of players created will print to the screen "**IUPUI Football Roster**". A for loop will print iterate through the array and print filled elements. 
+17. If the userResponse ==3, then "Thank you for using our program - Goodbye!" will print to screen,  array will be deleted, and program will exit because of break. 
